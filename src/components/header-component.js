@@ -11,6 +11,9 @@ export default class NavBar extends Component {
                             <Link to="/Login" className="nav-link"> Login</Link>
                         </li>
                         <li className="nav-item">
+                            <Link to="/signup" className="nav-link"> Sign Up</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link to="/About" className="nav-link"> About</Link>
                         </li>
                         <li className="nav-item">
@@ -19,6 +22,10 @@ export default class NavBar extends Component {
                     </ul>
                 </div>
             </nav>
+<<<<<<< HEAD
         )
+=======
+        );
+>>>>>>> user-forms
     }
 }
