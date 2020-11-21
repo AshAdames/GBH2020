@@ -7,12 +7,14 @@ export default class Login extends Component {
 		super(props);
 		//bind stuff to make it work
 		this.usernameChange = this.usernameChange.bind(this);
+		this.emailChange = this.emailChange.bind(this);
 		this.passwordChange = this.passwordChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 
 		this.state = {
 			username: '',
 			password: '',
+			email: ''
 		}
 	}
 
@@ -21,6 +23,13 @@ export default class Login extends Component {
 			username: e.target.value
 		});
 	}
+
+	emailChange(e) {
+		this.setState({
+			email: e.target.value
+		});
+	}
+
 
 	passwordChange(e) {
 		this.setState({
@@ -32,6 +41,7 @@ export default class Login extends Component {
 		e.preventDefault();
 		const login = {
 			username: this.state.username,
+			email: this.state.email,
 			password: this.state.password
 		}
 
@@ -40,42 +50,33 @@ export default class Login extends Component {
 
 	render() {
 		return (
-
-			<body>
-				<div className="container-fluid">				<h1>Login to Dank here</h1></div>
-			<div className="container">
-
-					<form action="/login" method="get">
-						<div className="form-row">
-    						<div className="form-group col-md-6">
-								<label>Name: 
-    								<input type="text" name="name" />
-  								</label>
-									<div className="form-group col-md-6">
-										<label>Email: 
-    								<input type="text" name="email" />
-  										</label>
-									</div>
-
-
-  									<input type="submit" value="Submit" />
-										<p> Test</p>
-
-							</div>
-						</div>
-					</form>
-			</div>
-
-				
-
 			
-				
-	
+			<div className="container">
+				<div className="container-fluid text-center">				
+					<h1>Login to Dank here</h1>
+				</div>
+				<form onSubmit={this.onSubmit}>
+					<div className="form-group">
+					<label>Name</label>
+					<input type="text" className="form-control" placeholder="Name" value={this.state.username} onChange={this.usernameChange}/>
+						</div>
 
+					<div className="form-group">
+						<label>Email</label>
+						<input type="email" className="form-control" placeholder="Email" value={this.state.email} onChange={this.emailChange}/>
+						</div>
 
-
-</body>
-
+						<div className="form-group">
+							<label>Password</label>
+							<input type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.passwordChange}/>
+						</div>
+					<div className="form-group">
+						<button type="submit" className="btn btn-primary" value="submit">Login</button>
+					</div>
+					<p> Teseykrkwt</p>				
+				</form>
+			</div>
+			
 		);
 	}
 
