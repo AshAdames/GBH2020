@@ -7,7 +7,6 @@ function App() {
     return (
         <Router>
             <NavBar />
-            <br />
             <Route path="/login" exact component={Login} />
             <Route path="/about" exact component={About} />
         </Router>
