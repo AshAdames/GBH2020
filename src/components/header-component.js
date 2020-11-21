@@ -13,9 +13,12 @@ export default class NavBar extends Component {
                         <li className="nav-item">
                             <Link to="/About" className="nav-link"> About</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/driveform" className="nav-link"> DriveForm</Link>
+                        </li>
                     </ul>
                 </div>
             </nav>
-        );
+        )
     }
 }
