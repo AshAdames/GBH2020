@@ -4,11 +4,11 @@ let Drive = require('../models/drives-model');
 router.route('/').get((req, res) => {// website.com/drives/
     Drive.find() //find all users 
         .then(drives => res.json(drives)) //return users in json
-        .catch(err => res.status(400).json("Error: " + err);
+        .catch(err => res.status(400).json("Error: " + err));
 
 });
 
-router.route('/add').add((req, res) => {// website.com/drives/add
+router.route('/add').post((req, res) => {// website.com/drives/add
     const type = req.body.type;
     const drivename = req.body.drivename;
     const username= "test";
@@ -16,7 +16,7 @@ router.route('/add').add((req, res) => {// website.com/drives/add
     const contact = req.body.contact;
     const location = req.body.location;
 
-    const newDrive = new User({
+    const newDrive = new Drive({
         type,
         drivename,
         username,

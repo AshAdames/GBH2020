@@ -10,13 +10,13 @@ const driveSchema = new Schema({
         trim: true,
         minlength: 3
     },
-    username: {
+   /* username: {
         type: String,
         required: true,
         unique: true,
         trim: true,
         minlength: 3
-    },
+    },*/
 
     description: {
         type: String,

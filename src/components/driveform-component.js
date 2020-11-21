@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import Step1 from './step1-component'
 import Step2 from './step2-component'
 import Step3 from './step3-component'
+import axios from 'axios'
 export default class DriveForm extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             currStep: 1,
             drivename: "",
@@ -15,17 +15,29 @@ export default class DriveForm extends Component {
             location: ""
         }
 
-        this.handleChange = this.handleChange.bind(this)
+   }
+
+    handleChange = event => {
+        console.log("we tried to type");
+        const { name, value } = event.target
+        this.setState({
+            [name]: value
+        })
     }
 
-    handleChange(e) {
-        const { name, value } = e.target
-        this.setState({ [name]: value })
-    }
+    handleSubmit = event => {
+        event.preventDefault();
+        console.log("we tried to submit");
+        const drive = {
+            drivename: this.state.drivename,
+            description: this.state.description,
+            contact: this.state.contact,
+            location: this.state.location
+        }
+        console.log(drive);
+        axios.post("http://localhost:5000/drives/add", drive)
+            .then(res => console.log(res.data));
 
-    handleSubmit(e) {
-        e.preventDefault()
-        const {buttonValue} = this.state
     }
 
     _next = () => {

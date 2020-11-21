@@ -1,15 +1,22 @@
 const router = require('express').Router();
 let User = require('../models/users-model');
 
-router.route('/').get((req, res) => {// website.com/users/
+/*router.route('/').get((req, res) => {// website.com/users/
     User.find() //find all users 
         .then(users => res.json(users)) //return users in json
-        .catch(err => res.status(400).json("Error: " + err);
+        .catch(err => res.status(400).json("Error: " + err));
 
-});
+});*/
+
 
 router.route('/add').post((req, res) => {// website.com/users/add
     const username = req.body.username;
+    const password = req.body.password;
+    if (password != req.body.passwordconf) {
+
+    }
+    const email = req.body.email;
+    //error check for passwordconf
     const newUser = new User({ username });
 
     newUser.save()
