@@ -35,6 +35,6 @@ const driveSchema = new Schema({
     //date
 });
 
-const Drive = mongoose.model("Drive", userSchema);
+const Drive = mongoose.model("Drive", driveSchema);
 
 module.exports = Drive;
