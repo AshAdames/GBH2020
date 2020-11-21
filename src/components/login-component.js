@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import '../login.css';
 
 export default class Login extends Component {
 
@@ -39,12 +40,42 @@ export default class Login extends Component {
 
 	render() {
 		return (
-			<div>
-				<h1>Login</h1>
-				<form action="/login" method="get">
-					<input type="submit" value="Submit" />
-				</form>
+
+			<body>
+				<div className="container-fluid">				<h1>Login to Dank here</h1></div>
+			<div className="container">
+
+					<form action="/login" method="get">
+						<div className="form-row">
+    						<div className="form-group col-md-6">
+								<label>Name: 
+    								<input type="text" name="name" />
+  								</label>
+									<div className="form-group col-md-6">
+										<label>Email: 
+    								<input type="text" name="email" />
+  										</label>
+									</div>
+
+
+  									<input type="submit" value="Submit" />
+										<p> Test</p>
+
+							</div>
+						</div>
+					</form>
 			</div>
+
+				
+
+			
+				
+	
+
+
+
+</body>
+
 		);
 	}
 
