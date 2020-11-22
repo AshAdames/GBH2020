@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const driveSchema = new Schema({
-    type: String,
+    //type: String,
     drivename: {
         type: String,
         required: true,
