@@ -14,10 +14,13 @@ export default class NavBar extends Component {
                             <Link to="/signup" className="nav-link"> Sign Up</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/About" className="nav-link"> About</Link>
+                            <Link to="/resources" className="nav-link"> Resources</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/driveform" className="nav-link"> DriveForm</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/driveslist" className="nav-link"> Active Drives</Link>
                         </li>
                     </ul>
                 </div>
