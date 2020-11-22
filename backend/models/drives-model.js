@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const driveSchema = new Schema({
-    type: String,
+    //type: String,
     drivename: {
         type: String,
         required: true,
@@ -10,6 +10,9 @@ const driveSchema = new Schema({
         trim: true,
         minlength: 3
     },
+
+    data: [{item: String}],
+
    /* username: {
         type: String,
         required: true,

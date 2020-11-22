@@ -1,22 +1,14 @@
 const router = require('express').Router();
 let User = require('../models/users-model');
 
-/*router.route('/').get((req, res) => {// website.com/users/
-    User.find() //find all users 
-        .then(users => res.json(users)) //return users in json
-        .catch(err => res.status(400).json("Error: " + err));
-
-});*/
-
-
 router.route('/login').post((req, res) => {// website.com/users/login
     console.log("find one")
-    User.findOne({ email: req.body.email, password:req.body.password }, (err, user) => {
+    User.findOne({ username: req.body.username, password:req.body.password }, (err, user) => {
             if (err) {
                 res.send(err)
             } else{
-                console.log(user)
-                res.send(user)
+                //res.send(user)
+                res.redirect("http://localhost:3000/driveform")
             }
         }
     )
@@ -42,5 +34,13 @@ router.route('/add').post((req, res) => {// website.com/users/add
     res.redirect("/driveform")
 
 });
+
+
+/*router.route('/').get((req, res) => {// website.com/users/
+    User.find() //find all users 
+        .then(users => res.json(users)) //return users in json
+        .catch(err => res.status(400).json("Error: " + err));
+
+});*/
 
 module.exports = router;

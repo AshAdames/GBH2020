@@ -15,6 +15,7 @@ router.route('/add').post((req, res) => {// website.com/drives/add
     const description = req.body.description;
     const contact = req.body.contact;
     const location = req.body.location;
+    const driveItems = req.body.driveItems;
 
     const newDrive = new Drive({
         type,
@@ -22,7 +23,8 @@ router.route('/add').post((req, res) => {// website.com/drives/add
         username,
         description,
         contact,
-        location
+        location,
+        driveItems
     });
 
     newDrive.save()
@@ -31,7 +33,12 @@ router.route('/add').post((req, res) => {// website.com/drives/add
 
 });
 
-//router.route(/:id).get(req,res)
+router.route('/:id').get((req, res) => {
+    Exercise.findById(req.params.id)
+        .then(exercise => res.json(exercise))
+        .catch(err => res.status(400).json("Error: " + err))
+
+});
 //router.route(/update/:id).get(req,res)
 
 module.exports = router;
