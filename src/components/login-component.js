@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import '../login.css';
-
+import axios from 'axios';
 export default class Login extends Component {
-
 	constructor(props) {
 		super(props);
 		//bind stuff to make it work
@@ -17,7 +16,6 @@ export default class Login extends Component {
 			email: ''
 		}
 	}
-
 	usernameChange(e) {
 		this.setState({
 			username: e.target.value
@@ -39,13 +37,18 @@ export default class Login extends Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-		const login = {
+		const user = {
 			username: this.state.username,
 			email: this.state.email,
-			password: this.state.password
+			password: this.state.password,
+			isLoggedIn: true
 		}
+		
+		axios.post("http://localhost:5000/users/login", user)
+			.then(res => console.log(res.data));
 
-		console.log(login);
+		console.log(user);
+
 	}
 
 	render() {

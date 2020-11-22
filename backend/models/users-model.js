@@ -25,6 +25,10 @@ const userSchema = new Schema({
         unique: true,
         trim: true,
         minlength: 3
+    },
+
+    isLoggedIn: {
+        type: Boolean
     }
 });
 

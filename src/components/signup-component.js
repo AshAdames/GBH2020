@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../signup.css';
-
+import axios from 'axios';
 export default class SignUp extends Component {
 
 	constructor(props) {
@@ -51,13 +51,17 @@ export default class SignUp extends Component {
         if(this.state.password !== this.state.passwordconf){
             alert("Passwords must match");
         }else{
-            const signup = {
+            const user = {
                 username: this.state.username,
                 email: this.state.email,
                 password: this.state.password,
                 passwordconf: this.state.passwordconf
-            }
-            console.log(signup);
+			}
+
+			
+			axios.post("http://localhost:5000/users/add", user)
+				.then(res => console.log(res.data));
+            console.log(user);
             
         }
 
@@ -66,19 +70,11 @@ export default class SignUp extends Component {
 
 	render() {
 		return (
-				
-
 			<div className="container">
 				<div className="container-fluid text-center">				
 					<h1>Sign up to Dank here</h1>
 				</div>
-
-
                 <form onSubmit={this.onSubmit}>
-
-				{/*sdfsdf */}
-
-
 					<div className="form-group">
 					<label>Name</label>
 					<input type="text" className="form-control" placeholder="Name" value={this.state.username} onChange={this.usernameChange}/>
@@ -98,18 +94,11 @@ export default class SignUp extends Component {
 							<label>Password confirmation</label>
 							<input type="password" className="form-control" placeholder="Password" value={this.state.passwordconf} onChange={this.passwordconfChange}/>
 						</div>
-
-
-
 					<div className="form-group">
 					
 						<button type="submit" className="btn btn-primary" value="submit">Sign Up</button>
 					
 					</div>
-									<p> Teseykrkwt</p>
-
-						
-					
 				</form>
 			</div>
 			
